@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Pomodoro Timer</h1>
+        </header>
+        
+        <main class="timer-container">
+            <div class="session-info">
+                <h2 id="session-type">Work Session</h2>
+                <div class="session-counter">
+                    <span>Session: </span>
+                    <span id="session-count">1</span>
+                    <span>/4</span>
+                </div>
+            </div>
+            
+            <div class="timer-display">
+                <div class="progress-ring">
+                    <svg class="progress-ring-svg" width="300" height="300">
+                        <circle
+                            class="progress-ring-circle-bg"
+                            stroke="#e6e6e6"
+                            stroke-width="8"
+                            fill="transparent"
+                            r="140"
+                            cx="150"
+                            cy="150"/>
+                        <circle
+                            class="progress-ring-circle"
+                            stroke="#ff6b6b"
+                            stroke-width="8"
+                            fill="transparent"
+                            r="140"
+                            cx="150"
+                            cy="150"/>
+                    </svg>
+                    <div class="timer-text">
+                        <span id="time-display">25:00</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <button id="start-pause-btn" class="btn btn-primary">Start</button>
+                <button id="reset-btn" class="btn btn-secondary">Reset</button>
+                <button id="settings-btn" class="btn btn-secondary">Settings</button>
+            </div>
+        </main>
+        
+        <div id="settings-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Settings</h3>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="setting-group">
+                        <label for="work-duration">Work Duration (minutes):</label>
+                        <input type="number" id="work-duration" min="1" max="60" value="25">
+                    </div>
+                    <div class="setting-group">
+                        <label for="short-break-duration">Short Break (minutes):</label>
+                        <input type="number" id="short-break-duration" min="1" max="30" value="5">
+                    </div>
+                    <div class="setting-group">
+                        <label for="long-break-duration">Long Break (minutes):</label>
+                        <input type="number" id="long-break-duration" min="1" max="60" value="15">
+                    </div>
+                    <div class="setting-group">
+                        <label for="auto-start">Auto-start next session:</label>
+                        <input type="checkbox" id="auto-start">
+                    </div>
+                    <div class="setting-group">
+                        <label for="sound-enabled">Sound notifications:</label>
+                        <input type="checkbox" id="sound-enabled" checked>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="save-settings" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
